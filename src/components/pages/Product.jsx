@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Anuncio from "../Anuncio";
 import Newsletter from "../Newsletter";
@@ -6,6 +6,8 @@ import Topbar from "../Topbar";
 import Footer from "../Footer";
 import { Remove, Add } from "@material-ui/icons";
 import { mobile } from "../../responsive";
+import { useLocation } from "react-router";
+import { publicRequest } from "../../requestMethods";
 
 const Container = styled.div``;
 
@@ -117,13 +119,30 @@ const Boton = styled.button`
 `;
 
 const Product = () => {
+  const location = useLocation();
+  const id = location.pathname.split("/")[2];
+
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await publicRequest.get("/product/find/" + id);
+        setProduct(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProduct();
+  }, [id]);
+
   return (
     <Container>
       <Topbar />
       <Anuncio />
       <Wrapper>
         <ImgContainer>
-          <Image src="https://i.pinimg.com/564x/b8/ab/51/b8ab510f8cedbec4381dd1f0b3f51d9e.jpg" />
+          <Image src={product.img} />
         </ImgContainer>
         <InfoContainer>
           <Title>eweeeee</Title>

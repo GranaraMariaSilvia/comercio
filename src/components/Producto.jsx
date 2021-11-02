@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import {
   ShoppingCartOutlined,
   SearchOutlined,
@@ -75,7 +76,9 @@ const Producto = ({ item }) => {
           <ShoppingCartOutlined />
         </Icono>
         <Icono>
-          <SearchOutlined />
+          <Link to={`/product/${item._id}`}>
+            <SearchOutlined />
+          </Link>
         </Icono>
         <Icono>
           <FavoriteBorderOutlined />

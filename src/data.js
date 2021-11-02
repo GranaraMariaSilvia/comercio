@@ -5,6 +5,7 @@ export const sliderItems = [
     desc: " ofertas hasta 50% off",
     titulo: "Primaver - Verano",
     bg: "fcf1aed",
+    cat: "woman",
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const sliderItems = [
     desc: "Busca todas las rebajas",
     titulo: "Promociones de temporada",
     bg: "fbf0f4",
+    cat: "men",
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const sliderItems = [
     desc: " Moda Sustentabla",
     titulo: "Una moda más justa y ecológica ",
     bg: "f5fafd",
+    cat: "sport",
   },
 ];
 
